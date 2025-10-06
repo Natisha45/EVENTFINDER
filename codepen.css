@@ -1,3 +1,39 @@
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    .events {
+        padding: 1rem 0.5rem;
+        max-width: 100%;
+    }
+    #events-grid,
+    #events-Container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem 0;
+    }
+    #Search-input {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+    #Search-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .event-card {
+        padding: 1rem;
+    }
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 0 10px;
+        align-items: flex-start;
+    }
+    nav {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
 * {
     margin: 0;
     padding: 0;
