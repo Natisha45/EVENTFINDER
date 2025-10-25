@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Events - EVENTFINDER</title>
+    <link rel="stylesheet" href="codepen.css">
+</head>
+<body>
+    <style>
+        /* My Events Page Styles */
+.myevents-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.myevents-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.myevents-header h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.myevents-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Tabs Navigation */
+.events-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+}
+
+.tab-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Tab Content */
+.tab-content {
+    min-height: 400px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* My Events Specific Cards */
+.my-event-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.event-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-registered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-confirmed {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-waiting {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.event-date-badge {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.countdown {
+    background: #ffc107;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 8px 15px;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    background: white;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 120px;
+}
+
+.action-btn:hover {
+    background: #007bff;
+    color: white;
+}
+
+.action-btn.danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.action-btn.danger:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.browse-btn, .create-event-btn {
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.browse-btn:hover, .create-event-btn:hover {
+    background: #0056b3;
+}
+
+/* Hosting Section */
+.hosting-actions {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+/* Responsive My Events */
+@media (max-width: 768px) {
+    .myevents-container {
+        padding: 15px;
+    }
+    
+    .events-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .event-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        min-width: auto;
+    }
+}
+    </style>
+    <header>
+        <div class="logo">
+            <p> 🎪 EVENTFINDER</p>
+        </div>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="browse.html">Browse</a>
+            <a href="myevents.html" class="active">My Events</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="index.html" id="loginLogoutBtn">Login</a>
+        </nav>
+    </header>
+
+    <main class="myevents-container">
+        <!-- Page Header -->
+        <div class="myevents-header">
+            <h1>My Events</h1>
+            <p>Manage your event registrations and history</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="events-tabs">
+            <button class="tab-btn active" data-tab="upcoming">📅 Upcoming Events</button>
+            <button class="tab-btn" data-tab="past">✅ Past Events</button>
+            <button class="tab-btn" data-tab="saved">❤️ Saved Events</button>
+            <button class="tab-btn" data-tab="hosting">🎤 Hosting</button>
+        </div>
+
+        <!-- Tab Content Areas -->
+        <div class="tab-content">
+            
+            <!-- Upcoming Events Tab -->
+            <div id="upcoming" class="tab-pane active">
+                <div class="events-grid" id="upcoming-events">
+                    <!-- Event cards will be populated by JavaScript -->
+                    <div class="empty-state">
+                        <h3>No Upcoming Events</h3>
+                        <p>Browse events and register to see them here!</p>
+                        <a href="browse.html" class="browse-btn">Browse Events</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Events Tab -->
+            <div id="past" class="tab-pane">
+                <div class="events-grid" id="past-events">
+                    <div class="empty-state">
+                        <h3>No Past Events</h3>
+                        <p>Your attended events will appear here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saved Events Tab -->
+            <div id="saved" class="tab-pane">
+                <div class="events-grid" id="saved-events">
+                    <div class="empty-state">
+                        <h3>No Saved Events</h3>
+                        <p>Click the heart icon on events to save them for later</p>
+                        <a href="browse.html" class="browse-btn">Browse Events</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hosting Tab -->
+            <div id="hosting" class="tab-pane">
+                <div class="hosting-actions">
+                    <button class="create-event-btn">➕ Create New Event</button>
+                </div>
+                <div class="events-grid" id="hosting-events">
+                    <div class="empty-state">
+                        <h3>Not Hosting Any Events</h3>
+                        <p>Create your first event and start managing attendees</p>
+                        <button class="create-event-btn">Create Event</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Help</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <p class="footer-text">© 2024 EventFinder - Connecting Ethiopia Through Events</p>
+        </div>
+    </footer>
+
+    <script src="myevents.js"></script>
+</body>
+</html>

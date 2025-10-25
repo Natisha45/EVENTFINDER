@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse</title>
+    <link rel="stylesheet" href="codepen.css">
+    <link rel="stylesheet" href="browse.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+   <header>
+        <div class="logo">
+                <p> 🎪 EVENTFINDER</p>
+        </div>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="browse.html">Browse</a>
+            <a href="myevents.html">Myevents</a>
+            <a href="schedule.html">schedule </a>
+            <a href="index.html" id="loginLogoutBtn">Login</a>
+             
+        </nav>
+
+    </header>
+  
+ <main>
+  <div class="top-filter" >
+     <div id="sort">
+            <label>sort By</label> 
+        <button class="sort-btn" data-sort="newest">Newest</button>
+         <button class="sort-btn" data-sort="popular">popular</button>
+          <button class="sort-btn" data-sort="longest">longest</button>
+           <button class="sort-btn"data-sort="upcoming">upcoming</button>
+        </div>
+      <input type="text" placeholder="search events..." id="Search-input">
+    <!-- don't forget to add search icon -->
+    <button id="Search-btn"><i class="fas fa-search"></i></button>
+       
+    
+    </div>
+   
+<div class="main-content">
+         <div class="Side-filter" >
+        <h3>Filter Events</h3>
+        <div class="filter-group">
+            <label for="category">Category:</label>
+            <div>
+                <input type="checkbox" id="Concert" name="category" value="Concert">
+                <label for="Concert">Concert</label>
+            </div>
+            <div>
+                <input type="checkbox" id="sports" name="category" value="sports">
+                <label for="sports">Sports</label>
+            </div>
+            <div>
+                <input type="checkbox" id="tech" name="category" value="tech">
+                <label for="tech">Tech</label>
+            </div>
+            <div>
+                <input type="checkbox" id="art" name="category" value="art">
+                <label for="art">Art</label>
+            </div>
+             <div>
+                <input type="checkbox" id="Conference" name="category" value="Conference">
+                <label for="Conference">Conference</label>
+            </div>  
+
+            </div>
+            <div class="filter-group">
+            <label for="category">Date:</label>
+            <div>
+                <input type="radio" id="Any Date" name="date" value="Any Date">
+                <label for="Any Date">Any Date</label>
+            </div>
+            <div>
+                <input type="radio" id="Today" name="date" value="Today">
+                <label for="Today">Today</label>
+            </div>
+            <div>
+                <input type="radio" id="This Week" name="date" value="This Week">
+                <label for="This Week">This Week</label>
+            </div>
+            <div>
+                <input type="radio" id="This Month" name="date" value="This Month">
+                <label for="This Month">This Month</label>
+            </div>
+             <div>
+                <input type="radio" id="Upcoming" name="date" value="Upcoming">
+                <label for="Upcoming">Upcoming</label>
+            </div>          
+            </div>
+                <div class="filter-group">
+            <label for="category">Location:</label>
+            <div>
+                <input type="checkbox" id="Online" name="location" value="Online">
+                <label for="Online">Online</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Downtown" name="location" value="Downtown">
+                <label for="Downtown">Downtown</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Midtown" name="location" value="Midtown">
+                <label for="Midtown">Midtown</label>
+            </div>       
+            </div>
+                <div class="filter-group">
+            <label for="category">Price:</label>
+            <div>
+                <input type="checkbox" id="Any Price" name="price" value="Any Price">
+                <label for="Any Price">Any Price</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Free Only" name="price" value="Free Only">
+                <label for="Free Only">Free Only</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Paid Only" name="price" value="Paid Only">
+                <label for="Paid Only">Paid Only</label>
+            </div>       
+            </div>
+                <button id="apply-filters">Apply Filters</button>
+                <button id="clear-filters">Clear Filters</button>
+    </div>
+   
+     <div class="event-Container" >
+        <h2>Events</h2>
+        <div id="events-grid"> 
+                
+            </div>
+    </div>
+</div>
+    
+  
+ </main>
+ 
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+        <p class="footer-text">© 2024 EventFinder - Connecting Ethiopia Through Events</p>
+    </div>
+</footer>
+<script src="codepen.js"></script>
+</body>
+</html>
